@@ -1,0 +1,19 @@
+<div class="jam-window stretch flex-vertical flex-center-start floating-box"
+	[style.borderRadius]="borderRadius">
+
+	<header *ngIf="title" class="border-box stretch-horizontally flex flex-start-center">
+		<mat-icon class="title-icon" color="primary"> {{ titleIcon }} </mat-icon>
+		<span class="title-text"> {{ title }} </span>
+		<div class="flex-pad"></div>
+		<ng-content select="[header-template]"></ng-content>
+	</header>
+
+	<main class="vertical-scroll flex-vertical flex-start-center">
+		<ng-content select="[content-template]"></ng-content>
+	</main>
+
+	<footer class="stretch-horizontally relative">
+		<ng-content select="[footer-template]"></ng-content>
+	</footer>
+
+</div>

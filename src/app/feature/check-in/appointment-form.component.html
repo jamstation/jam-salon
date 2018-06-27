@@ -1,0 +1,220 @@
+<div mat-dialog-title class="title flex-no-shrink flex-space-between-center">
+	Check In
+	<button mat-raised-button
+		[class.hide]="stepper.selectedIndex !== 0"
+		type="button"
+		color="accent"
+		[disabled]="! serviceListViewChild.selectedOptions.selected.length"
+		(click)="submit()">
+		Quick Check In
+	</button>
+</div>
+
+<mat-dialog-content class="flex-grow">
+
+	<mat-horizontal-stepper #stepper
+		class="check-in-stepper"
+		linear="false">
+		<mat-step>
+			<ng-template matStepLabel> Service </ng-template>
+			<div class="service-list">
+				<mat-selection-list class="stretch-horizontally">
+					<mat-list-option *ngFor="let service of ( serviceList | async )"
+						class="service-list-item"
+						[value]="service">
+						<div class="flex-start-center">
+							<div matListAvatar class="service-duration flex-vertical flex-center-center">
+								<div> {{ service.duration }} </div>
+								<div class="xx-small-text"> min </div>
+							</div>
+							<div>
+								<span mat-line> {{ service.name }} </span>
+								<span mat-line *ngIf="service.price" class="service-price small-text"> ₹ {{ service.price }} </span>
+							</div>
+						</div>
+					</mat-list-option>
+				</mat-selection-list>
+			</div>
+		</mat-step>
+		<mat-step>
+			<ng-template matStepLabel> Slot </ng-template>
+			<div class="slot-step stretch flex">
+				<mat-calendar style="width: 300px"
+					[selected]="formItem.time"
+					(selectedChange)="selectDate( $event )">
+				</mat-calendar>
+				<section class="slot-section flex-grow">
+					<div class="slot-group morning-slot-group">
+						<div class="slot-heading semi-bold"> Morning Slots </div>
+						<div class="slot-list flex-start-center flex-wrap">
+							<div *ngFor="let slot of morningSlotList">
+								<button mat-icon-button
+								class="slot flex-center-center"
+								[ngClass]="{ 'selected-slot': slot.getTime() === formItem.time.getTime() }"
+								[matMenuTriggerFor]="menu"
+								[disabled]="slot | exists: ( checkInTimeList | async )">
+									<span *ngIf="slot.getTime() !== formItem.time.getTime(); else selectedSlotTemplate">
+										<span> {{ slot | date: 'h' }} </span>
+									</span>
+									<ng-template #selectedSlotTemplate>
+										<span class="selected-slot-text"> {{ slot | date: 'h:mm' }} </span>
+									</ng-template>
+								</button>
+								<mat-menu #menu>
+									<button mat-menu-item *ngFor="let minuteSplit of minuteSplitList"
+										(click)="selectSlot( slot, minuteSplit )">
+										{{ slot | date: 'h' }} : {{ minuteSplit }}
+									</button>
+								</mat-menu>
+							</div>
+						</div>
+					</div>
+					<div class="slot-group evening-slot-group">
+						<div class="slot-heading semi-bold"> Evening Slots </div>
+						<div class="slot-list flex-wrap">
+							<div *ngFor="let slot of eveningSlotList">
+								<button mat-icon-button
+									class="slot flex-center-center"
+									[ngClass]="{ 'selected-slot': slot.getTime() === formItem.time.getTime() }"
+									[matMenuTriggerFor]="menu"
+									[disabled]="slot | exists: ( checkInTimeList | async )">
+									<span *ngIf="slot.getTime() !== formItem.time.getTime(); else selectedSlotTemplate">
+										<span> {{ slot | date: 'h' }} </span>
+									</span>
+									<ng-template #selectedSlotTemplate>
+										<span class="selected-slot-text"> {{ slot | date: 'h:mm' }} </span>
+									</ng-template>
+								</button>
+								<mat-menu #menu>
+									<button mat-menu-item *ngFor="let minuteSplit of minuteSplitList"
+										(click)="selectSlot( slot, minuteSplit )">
+										{{ slot | date: 'h' }} : {{ minuteSplit }}
+									</button>
+								</mat-menu>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</mat-step>
+		<mat-step>
+			<ng-template matStepLabel> Check In </ng-template>
+			<div class="check-in-step stretch flex-vertical flex-center-center">
+				<form [formGroup]="form">
+
+					<div class="form-row">
+						<div class="form-label"> Name </div>
+						<div class="form-element">
+							<mat-form-field class="name">
+								<input matInput
+									class="html-form-element"
+									formControlName="name" />
+							</mat-form-field>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-label"> Phone </div>
+						<div class="form-element">
+							<mat-form-field class="phone">
+								<input matInput
+									class="html-form-element"
+									formControlName="phone" />
+							</mat-form-field>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-label"> Stylist Name </div>
+						<div class="form-element">
+							<mat-form-field>
+								<mat-select [value]="formItem.stylist"
+									(selectionChange)="formItem.stylist = $event.value">
+									<mat-option *ngFor="let stylist of ( stylistList | async )" [value]="stylist">
+										{{ stylist.name }}
+									</mat-option>
+								</mat-select>
+							</mat-form-field>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</mat-step>
+		<mat-step>
+			<ng-template matStepLabel> Summary </ng-template>
+			<div class="summary-block">
+				<div class="checked-in-block flex-vertical flex-center-center">
+					<mat-icon class="checked-in-icon xxx-large-icon"> check_circle </mat-icon>
+					<div class="checked-in-text x-large-text semi-bold align-center">
+						<span *ngIf="formItem.name"> Hi {{ formItem.name }}, </span>
+						<span> You are now checked in ! </span>
+					</div>
+				</div>
+				<div class="token-block flex-vertical flex-center-center">
+					<span> Your token is <span class="token semi-bold large-text"> {{ formItem.token }} </span> </span>
+					<!-- <i> ( Please bring this number to the store. ) </i> -->
+				</div>
+				<summary class="flex-space-between-start">
+					<div class="details-block flex-vertical">
+						<div class="details-row">
+							<span class="details-label"> Check in time: </span>
+							<span class="details-value"> {{ formItem.time | date: 'h:mm ( dd-MMM-yy )' }} </span>
+						</div>
+						<div class="details-row">
+							<span class="details-label"> Stylist: </span>
+							<span class="details-value"> {{ formItem.stylist.name }} </span>
+						</div>
+						<div class="details-row">
+							<span class="details-label"> Services: </span>
+							<span class="details-value"> {{ formItem.serviceList | map: 'name' }} </span>
+						</div>
+						<div class="details-row">
+							<span class="details-label"> Duration: </span>
+							<span class="details-value"> {{ totalDuration | date: 'H:mm' }} </span>
+						</div>
+						<div class="details-row">
+							<span class="details-label"> Charge: </span>
+							<span class="details-value"> {{ totalPrice | currency: 'INR' : 'symbol' }} </span>
+						</div>
+					</div>
+				</summary>
+			</div>
+		</mat-step>
+	</mat-horizontal-stepper>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="flex-no-shrink flex-space-between-center">
+
+	<button mat-button
+		class="cancel-button"
+		[ngClass]="{ 'remove': stepper.selectedIndex === summaryStep }"
+		type="button"
+		(click)="cancel()">
+		Cancel
+	</button>
+
+
+	<div>
+		<button mat-button
+			class="back-button"
+			[ngClass]="{ 'remove': stepper.selectedIndex === summaryStep }"
+			type="button"
+			(click)="stepper.previous()">
+			<mat-icon class="large"> keyboard_arrow_left </mat-icon>
+			<span class="stepperBackButtonText"> Back </span>
+		</button>
+
+		<button mat-raised-button
+			class="next-button"
+			[ngClass]="{ 'check-in-button': stepper.selectedIndex === checkInStep, 'close-button': stepper.selectedIndex === summaryStep }"
+			type="button"
+			color="primary"
+			[disabled]="! serviceListViewChild.selectedOptions.selected.length"
+			(click)="nextStepper()">
+			{{ stepperNextButtonText }}
+		</button>
+	</div>
+
+</mat-dialog-actions>

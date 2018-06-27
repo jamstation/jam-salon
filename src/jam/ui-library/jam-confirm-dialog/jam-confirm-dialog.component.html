@@ -1,0 +1,16 @@
+<div mat-dialog-title> {{ data.title }} </div>
+
+<div mat-dialog-content class="content">
+	{{ data.prompt }}
+</div>
+
+<div mat-dialog-actions align="end">
+	<button mat-button mat-dialog-close>
+		No
+	</button>
+	<button mat-raised-button
+		color="primary"
+		(click)="_submit()">
+		Yes
+	</button>
+</div>

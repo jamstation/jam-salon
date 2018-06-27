@@ -1,0 +1,38 @@
+header {
+	flex-basis: 200px;
+    background-color: royalblue;
+	color: white;
+}
+
+.error-box {
+	flex-grow: 0.5;
+	padding: 0px 20px;
+	min-height: 200px;
+	max-height: 500px;
+}
+
+.error-icon {
+	color: lightgray;
+}
+
+.error-title {
+	color: lightslategray;
+}
+
+.error-message {
+	color: slategrey;
+    text-align: center;
+}
+
+.home-button {
+	margin-top: 50px;
+}
+
+footer {
+	flex-basis: 100px;
+	background: #e8e8e8;
+}
+
+@media ( max-width: 576px ) {
+
+}

@@ -1,0 +1,57 @@
+<div mat-dialog-title> Summary </div>
+
+<mat-dialog-content>
+	<div class="summary-block">
+		<div class="checked-in-block flex-vertical flex-center-center">
+			<mat-icon class="checked-in-icon xxx-large-icon"> check_circle </mat-icon>
+			<div class="checked-in-text x-large-text semi-bold align-center">
+				<span *ngIf="formItem.name"> Hi {{ formItem.name }}, </span>
+				<span> You are now checked in ! </span>
+			</div>
+		</div>
+		<div class="token-block flex-vertical flex-center-center">
+			<span> Your token is <span class="token semi-bold large-text"> {{ formItem.token }} </span> </span>
+			<!-- <i> ( Please bring this number to the store. ) </i> -->
+		</div>
+		<summary class="flex-space-between-start">
+			<div class="details-block flex-vertical">
+				<div class="details-row">
+					<span class="details-value"> You're {{ queueLength | nth }} in queue </span>
+				</div>
+				<div class="details-row">
+					<span class="details-label"> Services: </span>
+					<span class="details-value"> {{ formItem.serviceList | map: 'name' }} </span>
+				</div>
+				<div class="details-row">
+					<span class="details-label"> Check in time: </span>
+					<span class="details-value"> {{ formItem.time | date: 'h:mm ( dd-MMM-yy )' }} </span>
+				</div>
+				<div class="details-row">
+					<span class="details-label"> Estimated wait time: </span>
+					<span class="details-value"> {{ waitTime | time: 'short' }} </span>
+				</div>
+				<div class="details-row">
+					<span class="details-label"> Duration: </span>
+					<span class="details-value"> {{ totalDuration | time: 'short' }} </span>
+				</div>
+				<div class="details-row">
+					<span class="details-label"> Charge: </span>
+					<span class="details-value"> {{ totalPrice | currency: 'INR' : 'symbol' }} </span>
+				</div>
+			</div>
+		</summary>
+	</div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+	<button mat-raised-button
+		class="ok-button"
+		type="button"
+		color="primary"
+		(click)="close()">
+		Ok
+	</button>
+
+</mat-dialog-actions>

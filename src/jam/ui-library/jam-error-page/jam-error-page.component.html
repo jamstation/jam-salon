@@ -1,0 +1,34 @@
+<div class="container">
+
+	<header class="flex-center-center">
+		<div class="xxx-large-text invert-color"> Error {{ error.code }} </div>
+	</header>
+
+	<main class="flex-grow flex-vertical flex-center-center">
+		<div class="flex-pad"></div>
+		<div class="error-box flex-vertical flex-space-between-center">
+			<mat-icon class="error-icon x4-large-icon bold"> {{ error.icon }} </mat-icon>
+			<div class="error-title xxx-large-text"> {{ error.title }} </div>
+			<!-- <div class="error-code"> Code: {{ error.code }} </div> -->
+			<div class="error-message x-large-text"> {{ error.message }} </div>
+			<button mat-raised-button
+				class="home-button"
+				color="primary"
+				(click)="goHome()">
+				Take me Home
+			</button>
+		</div>
+		<div class="flex-pad"></div>
+	</main>
+
+	<footer class="flex-center-center">
+		<div>
+			<a src="home"> Home </a>
+			<span> | </span>
+			<a src="contact"> Contact </a>
+			<span> | </span>
+			<a src="help"> Help </a>
+		</div>
+	</footer>
+
+</div>

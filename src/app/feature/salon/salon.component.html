@@ -1,0 +1,49 @@
+<div class="component stretch flex-vertical">
+
+	<main class="stretch-vertically flex-vertical flex-start-center">
+		<div class="salon-list">
+			<mat-card *ngFor="let salon of list | async"
+				class="salon"
+				[ngClass]="{ 'selected-salon': ( selectedItem | async )?.name === salon.name }"
+				bgColor="accent"
+				(click)="select( salon )">
+				<mat-card-header>
+					<mat-card-title> {{ salon.name }} </mat-card-title>
+					<mat-card-subtitle class="salon-address"> {{ salon.location?.text }} </mat-card-subtitle>
+				</mat-card-header>
+				<mat-card-content class="flex-vertical">
+					<div class="salon-open"
+						[ngClass]="{ 'salon-close': !salon.open$ }"> {{ salon.open$ ? 'OPEN' : 'CLOSED' }} </div>
+					<div class="salon-hours flex-start-center">
+						<mat-icon class="space-after-icon"> access_time </mat-icon>
+						<span> 08:00 AM to 10:00 PM </span>
+					</div>
+				</mat-card-content>
+			</mat-card>
+		</div>
+		<div class="details-container flex">
+			<section *ngIf="( selectedItem | async ) as selectedSalon" class="details-section">
+				<div class="details-title"> {{ selectedSalon.name }} </div>
+				<div class="details-address"> {{ selectedSalon.location?.text }} </div>
+				<div class="details-actions">
+					<button mat-raised-button color="accent" class="visit-button"> Visit Site </button>
+					<button mat-raised-button color="accent" class="check-in-button"> CHECK IN </button>
+				</div>
+			</section>
+			<div> {{ (userLocation | async)?.text }} </div>
+			<section *ngIf="( userLocation | async ) as location"
+				class="map-section">
+				<agm-map class="stretch-vertically"
+					[latitude]="location?.coordinates?.lat"
+					[longitude]="location?.coordinates?.lng"
+					[zoom]="14">
+					<agm-marker [latitude]="location?.coordinates?.lat"
+						[longitude]="location?.coordinates?.lng">
+					</agm-marker>
+					<agm-info-window> {{ location?.text }} </agm-info-window>
+				</agm-map>
+			</section>
+		</div>
+	</main>
+
+</div>

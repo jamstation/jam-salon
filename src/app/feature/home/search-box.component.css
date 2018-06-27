@@ -1,0 +1,13 @@
+.search-box-container {
+    width: 60%;
+	max-width: 1000px;
+	color: white;
+	font-size: x-large;
+}
+
+.search-box {
+    box-sizing: border-box;
+    padding-left: 30px;
+    padding-right: 30px;
+	height: 50px;
+}

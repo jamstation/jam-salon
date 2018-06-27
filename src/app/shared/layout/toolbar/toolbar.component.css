@@ -1,0 +1,31 @@
+.overlay {
+	z-index: 99;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+
+mat-toolbar {
+	z-index: 100;
+	position: fixed;
+	background-color: transparent;
+	border-radius: 0px;
+	box-shadow: 4px 4px 50px -2px rgba( 0, 0, 0, 0.1 );
+}
+
+.left-section, .right-section {
+	width: 50px;
+}
+
+.center-section {
+	padding-top: 3px;
+}
+
+@media ( max-width: 576px ) {
+
+	.left-section mat-icon, .title, .right-section mat-icon, .nav-link {
+		color: white;
+	}
+
+}

@@ -1,0 +1,94 @@
+<!-- <div [class.overlay]="toolbarOpen" (click)="toolbarOpen = false"></div>
+<mat-expansion-panel
+	class="floating-box stretch-horizontally"
+	[ngClass]="{ 'toolbarOpen': toolbarOpen }"
+	color="primary"
+	hideToggle="true"
+	[expanded]="toolbarOpen"
+	(opened)="toolbarOpen = true"
+	(closed)="toolbarOpen = false">
+
+	<mat-expansion-panel-header
+		[collapsedHeight]="( screenSize | async ) == 'xs' ? '40px' : '40px'"
+		expandedHeight="90px">
+
+		<mat-panel-title class="flex-space-between-center">
+
+			<section class="left-section flex">
+				<button mat-icon-button
+					class="menu-button">
+					<mat-icon> {{ toolbarOpen ? 'close' : 'menu' }} </mat-icon>
+				</button>
+			</section>
+
+			<section class="title-section">
+				<span class="title small-text"> {{ companyTitle | async }} </span>
+			</section>
+
+			<section class="right-section flex flex-end-center" (click)="$event.stopPropagation(); toolbarOpen = false" >
+
+				<div *ngIf="user | async; then signedInTemplate; else guestTemplate"></div>
+				<ng-template #signedInTemplate>
+					<div class="flex-vertical flex-center-center">
+						<button mat-icon-button [color]="toolbarOpen ? 'primary' : null"
+							class="profile-button">
+							<mat-icon [class.grow-animation]="toolbarOpen"> account_circle </mat-icon>
+						</button>
+						<div *ngIf="toolbarOpen" color="primary" class="small-text"> Profile </div>
+					</div>
+				</ng-template>
+				<ng-template #guestTemplate>
+					<button mat-button color="primary"
+						class="sign-in-button small-button"
+						(click)="goto( pages.signIn )">
+						SIGN IN
+					</button>
+				</ng-template>
+
+			</section>
+
+		</mat-panel-title>
+
+	</mat-expansion-panel-header>
+
+	<div class="menu stretch flex flex-center-center"
+		(click)="toolbarOpen = false">
+		<div class="nav-link" (click)="goto( pages.dashboard )"> Dashboard </div>
+		<div class="nav-link" (click)="goto( pages.queue )"> Queue </div>
+		<div class="nav-link" (click)="goto( pages.service )"> Services </div>
+		<div class="nav-link" (click)="goto( pages.stylist )"> Stylists </div>
+		<div class="nav-link" (click)="goto( pages.settings )"> Settings </div>
+	</div>
+
+</mat-expansion-panel> -->
+
+<mat-toolbar class="flex-center-center normal-text semi-bold">
+
+	<section class="left-section">
+		<button mat-icon-button color="primary"
+			class="home-button"
+			(click)="goto( pages.home )">
+			<mat-icon> home </mat-icon>
+		</button>
+	</section>
+
+	<section class="center-section flex-grow"> {{ appTitle }} </section>
+
+	<section class="right-section">
+		<div *ngIf="user | async; then signedInTemplate; else guestTemplate"></div>
+		<ng-template #signedInTemplate>
+			<button mat-icon-button color="primary"
+				class="profile-button">
+				<mat-icon> account_circle </mat-icon>
+			</button>
+		</ng-template>
+		<ng-template #guestTemplate>
+			<button mat-button color="primary"
+				class="sign-in-button small-button"
+				(click)="goto( pages.signIn )">
+				SIGN IN
+			</button>
+		</ng-template>
+	</section>
+
+</mat-toolbar>

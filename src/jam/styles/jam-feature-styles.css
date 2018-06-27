@@ -1,0 +1,65 @@
+.scroll {
+	overflow-x: auto;
+	overflow-y: auto;
+}
+
+.horizontal-scroll {
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.vertical-scroll {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.shadow {
+	box-shadow: 4px 4px 20px -6px rgba( 0, 0, 0, 0.1 );
+}
+
+.show {
+	visibility: visible;
+}
+
+.hide {
+	visibility: hidden;
+}
+
+.collapse {
+	visibility: collapse;
+}
+
+.add {
+	display: initial;
+}
+
+.remove {
+	display: none !important;
+}
+
+.blue-tint:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(27, 97, 189, 0.253);
+}
+
+.scale-down-90 {
+	transform: scale( 0.9, 0.9 );
+}
+
+.selectable {
+	user-select: all;
+}
+
+.round {
+	border-radius: 50%;
+}
+
+img.cover {
+	background-size: cover;
+}

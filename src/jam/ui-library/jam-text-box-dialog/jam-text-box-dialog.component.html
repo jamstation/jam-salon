@@ -1,0 +1,28 @@
+<form [formGroup]="form" novalidate
+	(ngSubmit)="_submit()">
+
+	<div mat-dialog-title> {{ data.label }} </div>
+
+	<div mat-dialog-content>
+		<div class="content flex">
+			<mat-form-field class="value long-field">
+				<input matInput type="text"
+					[placeholder]="data.placeholder"
+					formControlName="value" />
+			</mat-form-field>
+		</div>
+	</div>
+
+	<div mat-dialog-actions align="end">
+		<button mat-button type="button"
+			mat-dialog-close
+			class="cancel-button">
+			Cancel
+		</button>
+		<button mat-raised-button color="primary" type="submit"
+			class="save-button"
+			[disabled]="!form.valid">
+			Save
+		</button>
+	</div>
+</form>

@@ -1,0 +1,114 @@
+:host {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header {
+	height: 50px;
+}
+
+main {
+    box-sizing: border-box;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.salon-list {
+    display: flex;
+}
+
+.selected-salon {
+    transform: translateY( 50px );
+}
+
+.salon {
+    margin-left: 40px;
+	width: 180px;
+    height: 200px;
+    box-shadow: 2px 2px 20px 2px rgba( 0, 0, 0, 0.2) !important;
+	border-radius: 4px;
+	transition: all 0.5s ease-out;
+	background-color: #D90368;
+	color: white;
+}
+
+.salon > mat-card-header {
+	justify-content: center;
+	padding-top: 20px;
+}
+
+.salon /deep/ .mat-card-header-text {
+	margin: 0;
+}
+
+.salon mat-card-title {
+	text-align: center;
+	font-size: 18px;
+    font-weight: 400;
+}
+
+.salon mat-card-subtitle {
+	color: white;
+}
+
+.salon > mat-card-content {
+	height: 100px;
+}
+
+.salon-open {
+	align-self: center;
+	padding: 3px 6px;
+    width: fit-content;
+	background-color: forestgreen;
+	color: white;
+	font-size: xx-small;
+}
+
+.salon-close {
+	background-color: darkred;
+}
+
+.salon-hours {
+	margin-top: 50px;
+}
+
+.details-container {
+	margin-top: 100px;
+	flex-grow: 1;
+}
+
+.details-section {
+    box-sizing: border-box;
+	padding: 40px;
+	width: 700px;
+	background-color: aliceblue;
+	transition: all 0.5s ease-out;
+}
+
+.map-section {
+	width: 500px;
+	height: 500px;
+	background-color: antiquewhite;
+}
+
+.details-title {
+    color: dimgray;
+	font-size: x-large;
+}
+
+.details-address {
+	margin-top: 5px;
+	color: darkgray;
+	font-style: italic;
+}
+
+.details-actions {
+	margin-top: 320px;
+}
+
+.check-in-button {
+	margin-left: 50px;
+}

@@ -1,0 +1,21 @@
+<div class="flex-center-center">
+	<mat-form-field class="search-box-container"
+		appearance="outline">
+		<mat-label> Enter your location </mat-label>
+		<input matInput jamMapsSearchInput
+			[matAutocomplete]="auto"
+			(suggestionChange)="suggestionList = $event">
+		<button mat-icon-button matSuffix>
+			<mat-icon class="xx-large-icon" color="accent"> search </mat-icon>
+		</button>
+		<mat-hint> You can search for a salon or area </mat-hint>
+		<mat-autocomplete #auto="matAutocomplete"
+			[displayWith]="displayWithFn"
+			(optionSelected)="selectSuggestion( $event )">
+			<mat-option *ngFor="let suggestion of suggestionList"
+				[value]="suggestion">
+				{{ suggestion.text }}
+			</mat-option>
+		</mat-autocomplete>
+	</mat-form-field>
+</div>

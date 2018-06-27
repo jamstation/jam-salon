@@ -1,0 +1,64 @@
+button.round-button {
+	border-radius: 50%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	/* margin: 0; */
+	font-weight: 500;
+}
+
+.xx-small-text {
+	font-size: xx-small !important;
+}
+
+.x-small-text {
+	font-size: x-small !important;
+}
+
+.small-text {
+	font-size: small !important;
+}
+
+.normal-text {
+	font-size: medium !important;
+}
+
+.large-text {
+	font-size: large !important;
+}
+
+.x-large-text {
+	font-size: x-large !important;
+}
+
+.xx-large-text {
+	font-size: xx-large !important;
+}
+
+.xxx-large-text {
+	font-size: 36px !important;
+}
+
+.jumbo-text {
+	font-size: 64px !important;
+}
+
+.giant-text {
+	font-size: 92px !important;
+}
+
+.semi-bold {
+	font-weight: 500;
+}
+
+*[bgColor="translucent"] {
+	background-color: rgba( 255, 255, 255, 0.5 );
+}
+
+invert-color {
+	color: white;
+}
+
+.space-after-icon {
+	margin-right: 10px;
+}

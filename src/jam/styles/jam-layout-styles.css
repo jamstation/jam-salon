@@ -1,0 +1,257 @@
+.stretch {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.stretch-horizontally {
+	width: 100%;
+	margin: inherit 0;
+	padding: inherit 0;
+}
+
+.stretch-vertically {
+	height: 100%;
+	margin: 0 inherit;
+	padding: 0 inherit;
+}
+
+.stretch-horizontally-95 {
+	width: 95%;
+	margin: inherit 0;
+	padding: inherit 0;
+}
+
+.stretch-horizontally-90 {
+	width: 90%;
+	margin: inherit 0;
+	padding: inherit 0;
+}
+
+.stretch-horizontally-80 {
+	width: 80%;
+	margin: inherit 0;
+	padding: inherit 0;
+}
+
+.stretch-horizontally-75 {
+	width: 75%;
+	margin: inherit 0;
+	padding: inherit 0;
+}
+
+.stretch-horizontally-60 {
+	width: 60%;
+	margin: inherit 0;
+	padding: inherit 0;
+}
+
+.stretch-horizontally-50 {
+	width: 50%;
+	margin: inherit 0;
+	padding: inherit 0;
+}
+
+.stretch-vertically-95 {
+	height: 95%;
+	margin: 0 inherit;
+	padding: 0 inherit;
+}
+
+.stretch-vertically-90 {
+	height: 90%;
+	margin: 0 inherit;
+	padding: 0 inherit;
+}
+
+.stretch-vertically-80 {
+	height: 80%;
+	margin: 0 inherit;
+	padding: 0 inherit;
+}
+
+.stretch-vertically-75 {
+	height: 75%;
+	margin: 0 inherit;
+	padding: 0 inherit;
+}
+
+.stretch-vertically-60 {
+	height: 60%;
+	margin: 0 inherit;
+	padding: 0 inherit;
+}
+
+.stretch-vertically-50 {
+	height: 50%;
+	margin: 0 inherit;
+	padding: 0 inherit;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+}
+
+.border-box {
+	box-sizing: border-box;
+}
+
+.flex {
+	display: flex !important;
+	flex-direction: row;
+}
+
+.flex-vertical {
+	display: flex !important;
+	flex-direction: column !important;
+}
+
+.flex-start-start {
+	display: flex !important;
+	justify-content: flex-start !important;
+	align-items: flex-start !important;
+}
+
+.flex-start-center {
+	display: flex !important;
+	justify-content: flex-start !important;
+	align-items: center !important;
+}
+
+.flex-start-end {
+	display: flex !important;
+	justify-content: flex-start !important;
+	align-items: flex-end !important;
+}
+
+.flex-start-baseline {
+	display: flex !important;
+	justify-content: flex-start !important;
+	align-items: baseline !important;
+}
+
+.flex-center-start {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: flex-start !important;
+}
+
+.flex-center-center {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+.flex-center-end {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: flex-end !important;
+}
+
+.flex-center-baseline {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: baseline !important;
+}
+
+.flex-space-between-start {
+	display: flex !important;
+	justify-content: space-between !important;
+	align-items: flex-start !important;
+}
+
+.flex-space-between-center {
+	display: flex !important;
+	justify-content: space-between !important;
+	align-items: center !important;
+}
+
+.flex-space-between-end {
+	display: flex !important;
+	justify-content: space-between !important;
+	align-items: flex-end !important;
+}
+
+.flex-end-start {
+	display: flex !important;
+	justify-content: flex-end !important;
+	align-items: flex-start !important;
+}
+
+.flex-end-center {
+	display: flex !important;
+	justify-content: flex-end !important;
+	align-items: center !important;
+}
+
+.flex-end-end {
+	display: flex !important;
+	justify-content: flex-end !important;
+	align-items: flex-end !important;
+}
+
+.flex-end-baseline {
+	display: flex !important;
+	justify-content: flex-end !important;
+	align-items: baseline !important;
+}
+
+.flex-grow {
+	flex-grow: 1;
+}
+
+.flex-no-grow {
+	flex-grow: 0;
+}
+
+.flex-shrink {
+	flex-shrink: 1;
+}
+
+.flex-no-shrink {
+	flex-shrink: 0;
+}
+
+.flex-grow-shrink {
+	flex-grow: 1;
+	flex-shrink: 1;
+}
+
+.flex-no-grow-no-shrink {
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+.flex-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flex-pad {
+	flex-grow: 1;
+	flex-shrink: 1;
+}
+
+.floating-box {
+    border-radius: 3px;
+    background-color: rgba( 247, 250, 255, 0.8 );
+    box-shadow: 6px 6px 80px 0px rgba( 0, 0, 0, 0.1 ) !important;
+}
+
+.fit-content {
+	width: fit-content;
+}
+
+.relative {
+	position: relative !important;
+}
+
+.absolute {
+	position: absolute !important;
+}

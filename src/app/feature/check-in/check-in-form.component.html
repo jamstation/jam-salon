@@ -1,0 +1,71 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+	<div mat-dialog-title>
+		Check In
+	</div>
+
+	<mat-dialog-content>
+
+		<div class="form-row">
+			<div class="form-label"> Name </div>
+			<div class="form-element">
+				<mat-form-field class="name">
+					<input matInput
+						class="html-form-element"
+						formControlName="name" />
+				</mat-form-field>
+			</div>
+		</div>
+
+		<div class="form-row">
+			<div class="form-label"> Phone </div>
+			<div class="form-element">
+				<mat-form-field class="phone">
+					<input matInput
+						class="html-form-element"
+						formControlName="phone" />
+				</mat-form-field>
+			</div>
+		</div>
+
+		<div class="service-list">
+			<h4> Choose services ( atleast one ) </h4>
+			<mat-selection-list class="stretch-horizontally">
+				<mat-list-option *ngFor="let service of ( serviceList | async )"
+					class="service-list-item"
+					[value]="service">
+					<div class="flex-start-center">
+						<div matListAvatar class="service-duration flex-vertical flex-center-center">
+							<div> {{ service.duration }} </div>
+							<div class="xx-small-text"> min </div>
+						</div>
+						<div>
+							<span mat-line> {{ service.name }} </span>
+							<span mat-line *ngIf="service.price" class="service-price small-text"> ₹ {{ service.price }} </span>
+						</div>
+					</div>
+				</mat-list-option>
+			</mat-selection-list>
+		</div>
+
+	</mat-dialog-content>
+
+	<mat-dialog-actions align="end">
+
+		<button mat-button
+			class="cancel-button"
+			type="button"
+			(click)="cancel()">
+			Cancel
+		</button>
+
+		<button mat-raised-button
+			class="check-in-button"
+			type="submit"
+			color="primary"
+			[disabled]="!serviceListViewChild.selectedOptions.selected.length || form.invalid"
+			(click)="cancel()">
+			Check In
+		</button>
+
+	</mat-dialog-actions>
+</form>

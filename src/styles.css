@@ -1,0 +1,39 @@
+body {
+	user-select: none;
+	background-color: #04151F;
+}
+
+::selection {
+	background-color: blanchedalmond;
+}
+
+.mat-snack-bar-container {
+	background-color: khaki !important;
+	color: black !important;
+	border-radius: 3px !important;
+	box-shadow: 0px 1px 4px 0 rgba( 0, 0, 0, 0.14) !important;
+}
+
+button.icon-button /deep/ mat-icon {
+	line-height: 14px;
+}
+
+*[color="primary"] {
+	color: #04151F;
+}
+
+*[color="accent"] {
+	color: #D90368;
+}
+
+*[bgColor="primary"] {
+	background-color: #04151F;
+}
+
+*[bgColor="accent"] {
+	background-color: #D90368;
+}
+
+button.mat-button, button.mat-raised-button, button.mat-stroked-button {
+	border-radius: 3px !important;
+}

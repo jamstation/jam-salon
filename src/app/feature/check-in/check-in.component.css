@@ -1,0 +1,104 @@
+:host {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+jam-window {
+	max-width: 1000px;
+}
+
+.check-in-list {
+	max-width: 500px;
+}
+
+.check-in-list-item:first-child {
+	margin-top: 0px;
+}
+
+.check-in-list-item:hover {
+	background-color: rgba( 255, 255, 255, 1 );
+	color: black;
+}
+
+.check-in-list-item {
+	margin-top: 20px;
+	padding: 15px 20px;
+	border-radius: 5px;
+	box-shadow: 4px 4px 20px -6px rgba( 0, 0, 0, 0.1 );
+	background-color: rgba( 255, 255, 255, 0.7 );
+	transition: any 0.2s ease-out;
+}
+
+.completed-item {
+	box-shadow: none;
+	opacity: 0.5;
+}
+
+.in-progress-item {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding: 30px 20px;
+	box-shadow: 4px 4px 50px -6px rgba( 0, 0, 0, 0.1 );
+	background-color: rgb(146, 202, 82);
+	color: white;
+}
+
+.check-in-list-item-avatar {
+	padding: 5px;
+	background-color: pink;
+	color: deeppink;
+}
+
+.status-button {
+	min-width: auto;
+	background-color: rgba( 255, 255, 255, 0.7 );
+}
+
+.in-progress-item .status-button {
+	background-color: forestgreen;
+}
+
+.in-progress-item:hover {
+	background-color: rgb(146, 202, 82);
+	color: white;
+}
+
+.in-progress-item:hover .status-button {
+	color: white;
+}
+
+.last-modified-item-animation {
+	animation-name: last-modified-item-animation;
+	animation-duration: 2s;
+	animation-timing-function: ease-out;
+}
+
+@keyframes last-modified-item-animation {
+	0% { background-color: white }
+	50% { background-color: mediumseagreen }
+	100% { background-color: white }
+}
+
+.footer {
+	min-height: 50px;
+}
+
+.add-button {
+	right: 30px;
+	bottom: 30px;
+}
+
+@media ( max-width: 576px ) {
+
+	.check-in-list {
+		max-width: 300px;
+	}
+
+	.footer {
+		height: 20px;
+	}
+
+}

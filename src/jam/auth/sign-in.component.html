@@ -1,0 +1,52 @@
+<form [formGroup]="form"
+    class="jam-auth stretch flex-vertical floating-box"
+    [style.maxWidth]="uiWidth | async"
+    [style.maxHeight]="uiHeight | async"
+    (submit)="submit()">
+
+    <header class="flex-start-center">
+        <div class="jam-auth-title x-large-text" color="primary"> Sign In </div>
+    </header>
+
+    <main class="flex-vertical flex-center-center">
+
+        <mat-form-field class="jam-auth-email-input form-item">
+            <input matInput email
+                type="email"
+                placeholder="Email"
+                formControlName="email"/>
+            <mat-error *ngIf="email.errors">
+                {{ email.errors | jamAuthReadableError:'email' }}
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="jam-auth-password-input form-item">
+            <input matInput
+                type="password"
+                placeholder="Password"
+                formControlName="password"/>
+            <mat-error *ngIf="password.errors">
+                {{ password.errors | jamAuthReadableError:'password' }}
+            </mat-error>
+        </mat-form-field>
+
+    </main>
+
+    <footer class="flex-space-between-center">
+
+        <button mat-button color="primary"
+            class="jam-auth-register-button"
+            type="button"
+            (click)="requestRegisterPage()">
+            Register
+        </button>
+
+        <button mat-raised-button color="primary"
+            class="jam-auth-sign-in-button"
+            type="submit">
+            Sign In
+        </button>
+
+    </footer>
+
+</form>

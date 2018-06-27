@@ -1,0 +1,95 @@
+@import '~@angular/material/_theming.scss';
+@include mat-core();
+
+$mat-darkgunmetal: (
+    50 : #e4e3e5,
+    100 : #bcb9bf,
+    200 : #8f8a95,
+    300 : #625b6a,
+    400 : #40384a,
+    500 : #1e152a,
+    600 : #1a1225,
+    700 : #160f1f,
+    800 : #120c19,
+    900 : #0a060f,
+    A100 : #9453ff,
+    A200 : #7420ff,
+    A400 : #5900ec,
+    A700 : #4f00d2,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$mat-salonpink: (
+    50 : #f5e4ed,
+    100 : #e5bcd2,
+    200 : #d490b4,
+    300 : #c36395,
+    400 : #b6417f,
+    500 : #a92068,
+    600 : #a21c60,
+    700 : #981855,
+    800 : #8f134b,
+    900 : #7e0b3a,
+    A100 : #ffafcb,
+    A200 : #ff7caa,
+    A400 : #ff4989,
+    A700 : #ff3079,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$custom-theme-primary: mat-palette( $mat-blue-grey );
+$custom-theme-accent:  mat-palette( $mat-pink, A200, A100, A400 );
+$custom-theme-warn: mat-palette( $mat-red );
+
+// Create the theme object (a Sass map containing all of the palettes).
+$custom-theme: mat-dark-theme( $custom-theme-primary, $custom-theme-accent, $custom-theme-warn );
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme( $custom-theme );
+
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Roboto, monospace',
+  $headline: mat-typography-level(24px, 32px, 700),
+  $body-1: mat-typography-level(13px, 15px, 500)
+);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+
+@include mat-core($custom-typography);
+
+
+// #C9A690
